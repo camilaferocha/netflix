@@ -1,18 +1,29 @@
-function CarregarFilmes(){
-    //array --> variável com subdivisões(indices)
-    let filmes = [
+
+//array --> variável com subdivisões(indices)
+let filmes = [
         "images/chegada.png" , 
         "images/yesterday.png" , 
         "images/escola.png" , 
-        "images/parasita.jpg" , 
-        "images/birdbox.jpg"
+        "images/parasita.png" , 
+        "images/birdbox.png"
     ]
-
+    
+function CarregarFilmes(){
     let totalFilmes = filmes.length
+    let divListaFilmes = document.querySelector(".lista-filmes")
 
+    divListaFilmes.innerHTML = ""
     //laço de repetição
     for(let i = 0 ; i < totalFilmes ; i++){
-        document.querySelector(".lista-filmes").innerHTML += "<img src="+ filmes[i] + ">"
+        divListaFilmes.innerHTML += "<img src="+ filmes[i] + ">"
     }
 }
 
+function AdicionarFilme(){
+    let nomeFilme = document.querySelector("#nome-do-filme").value
+    let caminhoCompleto = "iamges/" + nomeFilme
+
+    filmes.push(caminhoCompleto)
+
+    CarregarFilmes()
+}
